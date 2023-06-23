@@ -23,11 +23,16 @@
 #include "interface/scoreboard/scoreboard.h"
 #include "mechanics/game.h"
 
+// import sampleModule
+//import sampleModule;
+
 using namespace sf;
 
 int main() {
     // Google Test initialization in new thread
     std::thread t([] { testing::InitGoogleTest(); });
+
+//    hello();
 
     game myGame;
     myGame.run();

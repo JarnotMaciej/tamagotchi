@@ -385,7 +385,7 @@ void tamagotchiMechanics::happinessMechanics(tamagotchi &tamagotchiToModify, lon
 void tamagotchiMechanics::healthMechanics(tamagotchi &tamagotchiToModify, long long int difference) {
     // health is decreasing over time, but it is also based on other stats, according to the stats, multiplier will be calculated and then health will be decreased
     int health = tamagotchiToModify.getHealth();
-    float multiplier = .6f;
+    float multiplier = 1.0;
 
     // if hunger is less or equal 10, multiplier will be multiplied by 1.2
     if (tamagotchiToModify.getHunger() <= 10) {

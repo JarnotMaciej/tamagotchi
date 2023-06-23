@@ -20,6 +20,7 @@
 ### Supportive Friends:
 - Kamil
 - Zbyszek
+- Adam
 - Karol
 
 Thank you for help, inspiration and support. 

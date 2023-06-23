@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.25)
 project(tamagotchi VERSION 1.0)
 
 include(FetchContent)
@@ -24,10 +24,23 @@ FetchContent_MakeAvailable(googletest)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fmodules-ts")
+include(modules.cmake)
 
-add_executable(
-        april
-        main.cpp
+# Display debug info
+modules_get_latest_cxx_std(std_latest_ver)
+modules_supported(cxx_modules)
+modules_supported(cxx_modules_latest STANDARD ${std_latest_ver})
+message(STATUS "C++ target standard  = ${CMAKE_CXX_STANDARD}")
+message(STATUS "    modules support  = ${cxx_modules}")
+message(STATUS "")
+message(STATUS "C++ latest standard  = ${std_latest_ver}")
+message(STATUS "    modules support  = ${cxx_modules_latest}")
+# ------------------
+
+add_module_library(
+        moduleLibrary
+        sampleModule.cxx
         interface/screen.cpp
         interface/screen.h
         mechanics/assetManager.cpp
@@ -55,10 +68,30 @@ add_executable(
         interface/minigame/coin.cpp interface/minigame/coin.h
         mechanics/game.cpp mechanics/game.h
         interface/minigame/gameOver.cpp interface/minigame/gameOver.h
-        interface/minigame/minigameConnector.cpp interface/minigame/minigameConnector.h interface/tamagotchiScreen/foodStuff/foodButton.cpp interface/tamagotchiScreen/foodStuff/foodButton.h interface/tamagotchiScreen/foodStuff/foodBar.cpp interface/tamagotchiScreen/foodStuff/foodBar.h interface/exit/exitScreen.cpp interface/exit/exitScreen.h mechanics/errorHandler.cpp mechanics/errorHandler.h interface/credits/credits.cpp interface/credits/credits.h)
+        interface/minigame/minigameConnector.cpp interface/minigame/minigameConnector.h
+        interface/tamagotchiScreen/foodStuff/foodButton.cpp interface/tamagotchiScreen/foodStuff/foodButton.h
+        interface/tamagotchiScreen/foodStuff/foodBar.cpp interface/tamagotchiScreen/foodStuff/foodBar.h
+        interface/exit/exitScreen.cpp interface/exit/exitScreen.h
+        mechanics/errorHandler.cpp mechanics/errorHandler.h
+        interface/credits/credits.cpp interface/credits/credits.h
+)
+target_link_libraries(
+        moduleLibrary
+        sfml-graphics
+        sfml-window
+        sfml-system
+        sfml-audio
+        gtest_main
+)
+
+add_executable(
+        april
+        main.cpp
+)
 
 target_link_libraries(
         april
+        moduleLibrary
         sfml-graphics
         sfml-window
         sfml-system
