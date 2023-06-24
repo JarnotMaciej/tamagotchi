@@ -30,14 +30,14 @@ bool foodConfigValidation(const std::string &lineToValidate)
     std::regex lineRegex("[a-zA-Z]{1,32}\\s-?\\d+\\s-?\\d+\\s-?\\d+\\s-?\\d+\\s-?\\d+\\s-?\\d+");
     return std::regex_match(lineToValidate, lineRegex);
 }
-long long int getTime()
-{
-	// to be more precise, this functions gets time in seconds since 1.1.1970
-	auto time = std::chrono::system_clock::now();
-	auto since_epoch = time.time_since_epoch();
-	auto seconds = std::chrono::duration_cast<std::chrono::seconds>(since_epoch);
-	return seconds.count();
-}
+//long long int getTime()
+//{
+//	// to be more precise, this functions gets time in seconds since 1.1.1970
+//	auto time = std::chrono::system_clock::now();
+//	auto since_epoch = time.time_since_epoch();
+//	auto seconds = std::chrono::duration_cast<std::chrono::seconds>(since_epoch);
+//	return seconds.count();
+//}
 
 void setIcon(sf::RenderWindow &window) {
     auto path = std::filesystem::current_path().parent_path().string() + "/resources/icon/cat.png";

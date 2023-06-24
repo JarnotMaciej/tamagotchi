@@ -20,6 +20,9 @@
 // SFML
 #include <SFML/Graphics.hpp>
 
+// modules
+import getTime;
+
 #ifndef PROJECT_NAME_MECHANICS_TAMAGOTCHIMECHANICS_H_
 #define PROJECT_NAME_MECHANICS_TAMAGOTCHIMECHANICS_H_
 

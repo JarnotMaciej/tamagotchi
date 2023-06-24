@@ -17,6 +17,9 @@
 #include "../functions.h"
 #include "../mechanics/errorHandler.h"
 
+// modules
+import getTime;
+
 /**
  * @brief Tamagotchi class
  */

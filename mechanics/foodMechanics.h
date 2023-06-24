@@ -19,6 +19,7 @@
 #include "../structures/tamagotchi.h"
 #include "errorHandler.h"
 
+// modules
 
 /**
  * @brief Food mechanics namespace

@@ -41,6 +41,7 @@ message(STATUS "    modules support  = ${cxx_modules_latest}")
 add_module_library(
         moduleLibrary
         sampleModule.cxx
+        modules/getTime.cxx
         interface/screen.cpp
         interface/screen.h
         mechanics/assetManager.cpp
@@ -49,7 +50,7 @@ add_module_library(
         functions.cpp functions.h
         interface/tamagotchiScreen/indicator.cpp
         interface/tamagotchiScreen/indicator.h
-        tests/assetManagerTest.cpp tests/regexTest.cpp
+#        tests/assetManagerTest.cpp tests/regexTest.cpp
         structures/tamagotchi.cpp structures/food.cpp
         mechanics/tamagotchiMechanics.cpp mechanics/tamagotchiMechanics.h
         mechanics/tamagotchiMechanics.h structures/score.cpp

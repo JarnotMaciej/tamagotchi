@@ -16,6 +16,9 @@
 #include "../../mechanics/tamagotchiMechanics.h"
 #include "foodStuff/foodBar.h"
 
+// modules
+import getTime;
+
 /**
  * @brief Tamagotchi screen class
  */

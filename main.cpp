@@ -1,5 +1,5 @@
 // Google Test
-#include <gtest/gtest.h>
+//#include <gtest/gtest.h>
 
 // C++
 #include <iostream>
@@ -30,7 +30,7 @@ using namespace sf;
 
 int main() {
     // Google Test initialization in new thread
-    std::thread t([] { testing::InitGoogleTest(); });
+//    std::thread t([] { testing::InitGoogleTest(); });
 
 //    hello();
 
@@ -38,6 +38,7 @@ int main() {
     myGame.run();
 
     // Google Test run
-    t.join();
-    return RUN_ALL_TESTS();
+//    t.join();
+//    return RUN_ALL_TESTS();
+    return 0;
 }

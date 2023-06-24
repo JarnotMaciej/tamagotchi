@@ -61,7 +61,7 @@ bool tamagotchiSaveValidation(const std::string &tamagotchiFile);
  * @brief Method used for getting time
  * @return time in seconds
  */
-long long int getTime();
+//long long int getTime();
 
 /**
  * @brief Function used for setting icon
